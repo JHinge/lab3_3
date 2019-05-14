@@ -34,4 +34,17 @@ public class OrderTest {
         order.confirm();
         assertThat(order.getOrderState(), not(equalTo(Order.State.CANCELLED)));
     }
+
+    @Test
+    public void shouldConfirmOrderIfNotExpired() {
+        FakeDateTime fakeDateTime = new FakeDateTime();
+        fakeDateTime.addDateToReturn(2019, 10, 1, 0, 0);
+        fakeDateTime.addDateToReturn(2019, 10, 1, 2, 30);
+
+        Order order = new Order(fakeDateTime);
+        order.submit();
+        order.confirm();
+        assertThat(order.getOrderState(), not(equalTo(Order.State.CONFIRMED)));
+    }
+
 }

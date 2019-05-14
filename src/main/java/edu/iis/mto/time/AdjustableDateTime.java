@@ -5,11 +5,11 @@ import java.util.List;
 
 import org.joda.time.DateTime;
 
-public class FakeDateTime {
+public class AdjustableDateTime {
 
     private List<DateTime> datesToReturn;
 
-    public FakeDateTime() {
+    public AdjustableDateTime() {
         datesToReturn = new ArrayList<>();
     }
 
