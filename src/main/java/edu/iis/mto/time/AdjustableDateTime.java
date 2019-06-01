@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.joda.time.DateTime;
 
-public class AdjustableDateTime {
+public class AdjustableDateTime implements Clock {
 
     private List<DateTime> datesToReturn;
 
